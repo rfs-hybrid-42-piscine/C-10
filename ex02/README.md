@@ -38,6 +38,9 @@ Reading the end of a potentially massive file without overflowing RAM requires a
    # Test 5: File smaller than requested bytes (Should cleanly print whole file)
    ./ft_tail -c 999999 Makefile
    
-   # Test 6: Standard input testing (Type lines, then press Ctrl+D to see the tail)
+   # Test 6: Standard Input testing (Type lines, then press Ctrl+D to see the tail)
    ./ft_tail -c 15
+
+   # Test 7: Standard Input via the "-" flag mixed with files
+   ./ft_tail -c 10 Makefile - ft_hexdump.c
    ```
