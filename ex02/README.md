@@ -42,5 +42,5 @@ Reading the end of a potentially massive file without overflowing RAM requires a
    ./ft_tail -c 15
 
    # Test 7: Standard Input via the "-" flag mixed with files
-   ./ft_tail -c 10 Makefile - ft_hexdump.c
+   ./ft_tail -c 10 Makefile - ft_tail.c
    ```
