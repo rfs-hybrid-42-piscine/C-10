@@ -17,6 +17,7 @@ Reading the end of a potentially massive file without overflowing RAM requires a
    - **[`ft_tail.c`](ft_tail.c)**
    - **[`ft_tail_utils.c`](ft_tail_utils.c)**
    - **[`ft_tail.h`](ft_tail.h)**
+   - **[`Makefile`](Makefile)**
 
 3. **Testing Edge Cases:**
    ```bash
