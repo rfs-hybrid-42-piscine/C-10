@@ -35,8 +35,8 @@ You will use low-level system calls (`open`, `read`, `write`, `close`) to manipu
 ### 🔢 Advanced Parsing & Offsets
 | Exercise | Concept & Logic |
 | :--- | :--- |
-| **[`ex02: tail`](ex02)** | **Buffer Offsets:** Replicating the `tail` command to read the end of a file. <br><br>**Logic:** This requires dynamic memory allocation (`malloc` and `free`). We must parse the command-line arguments to find the `-c` option, which dictates exactly how many bytes from the end of the file we need to print. The algorithm involves reading the file to calculate its total size, establishing an offset pointer, and only printing from that offset to the EOF (End of File). |
-| **[`ex03: hexdump`](ex03)** | **Binary Translation:** Replicating the `hexdump` command with the `-C` formatting option. <br><br>**Logic:** This is an incredibly complex formatting challenge. We must read a file byte-by-byte and print its contents in three distinct columns: the hexadecimal memory offset, the raw hexadecimal value of the bytes, and the ASCII representation of those bytes. This requires rigorous buffer management to align the output perfectly, even if the file size is not perfectly divisible by 16. |
+| **[`ex02: tail`](ex02)** | **Buffer Offsets:** Replicating the `tail` command to read the end of a file. <br><br>**Logic:** This requires dynamic memory allocation (`malloc` and `free`). We must parse the command-line arguments to find the `-c` option, which dictates exactly how many bytes from the end of the file we need to print. Instead of buffering the entire file, we allocate a circular buffer matching the exact `-c` length. Using modulo arithmetic, we continuously overwrite the oldest data. This ensures an extremely low memory footprint, efficiently handling massive files without RAM overflows. |
+| **[`ex03: hexdump`](ex03)** | **Binary Translation:** Replicating the `hexdump` command with the `-C` formatting option. <br><br>**Logic:** This is an incredibly complex formatting challenge. We must read a file byte-by-byte and print its contents in three distinct columns: the hexadecimal memory offset, the raw hexadecimal value of the bytes, and the ASCII representation of those bytes. We utilize a 16-byte state machine buffer, comparing sequential lines to collapse duplicates into a single `*` character. It natively handles Little-Endian byte swapping and strict `-C` canonical spacing. |
 
 ---
 
@@ -72,11 +72,31 @@ Every single exercise in **C 10** must be submitted with its own `Makefile` cont
    ./ft_tail -c 50 Makefile
    ```
 
+5. **Testing ex03 (hexdump):**
+   ```bash
+   cd ex03
+   make
+   ./ft_hexdump -C Makefile
+   ```
+
 ### 🚨 The Norm
 Moulinette relies on a program called `norminette` to check if your files comply with the Norm. Every single `.c` and `.h` file must pass. 
 
 **The 42 Header:**
 Before writing any code, every file must start with the standard 42 header. `norminette` will automatically fail any file missing this specific signature.
+```c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maaugust <maaugust@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/26 14:03:42 by maaugust          #+#    #+#             */
+/*   Updated: 2026/02/26 18:42:25 by maaugust         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+```
 
 Run the following command before pushing:
 ```bash
