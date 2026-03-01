@@ -46,10 +46,20 @@ You will use low-level system calls (`open`, `read`, `write`, `close`) to manipu
 Every single exercise in **C 10** must be submitted with its own `Makefile` containing the rules: `all`, `clean`, and `fclean`.
 
 1. **Clone the repository:**
+   You can clone this module directly, or pull the entire 42 Piscine parent repository which includes this module as a submodule.
+
+   **Option A: Clone this module directly**
    ```bash
-   git clone <your_repository_link>
+   git clone git@github.com:rfs-hybrid-42-piscine/C-10.git C-10
+   cd C-10
+   ```
+
+   **Option B: Clone the parent repository (with submodules)**
+   ```bash
+   git clone --recurse-submodules git@github.com:rfs-hybrid/42-Piscine.git 42-Piscine
    cd 42-Piscine/C-10
    ```
+   *(Note: The `--recurse-submodules` flag ensures all nested module repositories are populated immediately.)*
 
 2. **Testing ex00 (display_file):**
    ```bash
