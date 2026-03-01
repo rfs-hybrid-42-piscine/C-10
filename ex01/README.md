@@ -13,10 +13,11 @@ Recreate the standard Unix `cat` utility. It must support reading from standard 
 ## 🛠️ Step-by-Step Solution
 
 1. **The Code:**
-   *Check out the source files here:* - **[`ft_cat.c`](ft_cat.c)**
+   *Check out the source files here:*
+   - **[`ft_cat.c`](ft_cat.c)**
    - **[`Makefile`](Makefile)**
 
-2. **Testing Edge Cases:**
+3. **Testing Edge Cases:**
    Test the sequential pipeline and the translation of system-level errors:
    ```bash
    make
