@@ -46,7 +46,4 @@ This is the final boss of the C 10 module, conceptually similar to `ft_print_mem
 
    # Test 6: Standard Input Testing (Testing fd 0)
    ./ft_hexdump -C
-
-   # Test 7: Standard Input via the "-" flag mixed with files
-   ./ft_hexdump -C Makefile - ft_hexdump.c
    ```
